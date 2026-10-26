@@ -1,0 +1,6 @@
+# Uploaded images only — never run scripts here
+<FilesMatch "\.(php|phtml|php\d|phar|pl|py|cgi|sh)$">
+  Require all denied
+</FilesMatch>
+Options -ExecCGI
+RemoveHandler .php .phtml .php5 .php7 .php8

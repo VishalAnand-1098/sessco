@@ -1,0 +1,9 @@
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+_data/
+_enquiries/
+jassco-data/
+.vercel
+node_modules/

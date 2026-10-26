@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /thank-you/
+Disallow: /send-enquiry.php
+Disallow: /admin/
+Disallow: /inc/
+
+Sitemap: https://www.jasscosteel.com/sitemap.xml
+Sitemap: https://www.jasscosteel.com/blog/sitemap.xml
