@@ -37,6 +37,7 @@ function settings_defaults(): array {
     'wa_callmebot_key' => '',
     'wa_cloud_token' => '', 'wa_cloud_phone_id' => '', 'wa_cloud_template' => '', 'wa_cloud_lang' => 'en',
     'public_whatsapp'=> '919971315142',         // number used by the WhatsApp chat button
+    'tour_video'     => '',                     // factory tour video: YouTube / Vimeo link or /uploads/video/....mp4
   ];
 }
 function settings(): array {

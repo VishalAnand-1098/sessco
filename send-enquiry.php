@@ -24,7 +24,7 @@ if ($ts <= 0 || (time() - $ts) < 4 || (time() - $ts) > 86400) back('spam');   //
 
 $type = ($_POST['form_type'] ?? 'rfq') === 'contact' ? 'contact' : 'rfq';
 $fields = ['name' => ['Name', 120, true], 'company' => ['Company', 160, true], 'email' => ['Business email', 160, true],
-           'country' => ['Country', 80, true], 'phone' => ['Telephone', 40, false]];
+           'country' => ['Country', 80, true], 'phone' => ['Mobile / WhatsApp number', 40, true]];
 if ($type === 'rfq') {
   $fields += ['product' => ['Product / process', 120, true], 'material' => ['Material grade', 160, false],
     'dimensions' => ['Thickness and dimensions', 400, false], 'quantity' => ['Estimated quantity', 160, false],
@@ -42,6 +42,7 @@ foreach ($fields as $k => [$label, $max, $req]) {
   $data[$k] = $v;
 }
 if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) back('invalid');
+if (strlen(preg_replace('/\D/', '', $data['phone'])) < 7) back('invalid');
 if (empty($_POST['consent'])) back('invalid');
 
 // --- uploads (RFQ only) ---

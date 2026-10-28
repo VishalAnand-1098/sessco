@@ -266,7 +266,8 @@ function page_settings(string $msg): void {
       'wa_provider' => in_array($in['wa_provider'] ?? '', ['callmebot', 'cloudapi', 'off'], true) ? $in['wa_provider'] : 'callmebot',
       'wa_number' => preg_replace('/\D/', '', $in['wa_number'] ?? ''), 'wa_callmebot_key' => $in['wa_callmebot_key'] ?? '',
       'wa_cloud_phone_id' => $in['wa_cloud_phone_id'] ?? '', 'wa_cloud_template' => $in['wa_cloud_template'] ?? '', 'wa_cloud_lang' => $in['wa_cloud_lang'] ?? 'en',
-      'public_whatsapp' => preg_replace('/\D/', '', $in['public_whatsapp'] ?? '')];
+      'public_whatsapp' => preg_replace('/\D/', '', $in['public_whatsapp'] ?? ''),
+      'tour_video' => preg_match('~^(https://|/uploads/)[^\s"<>]*$~', $in['tour_video'] ?? '') ? $in['tour_video'] : ''];
     if (($in['smtp_pass'] ?? '') !== '') $new['smtp_pass'] = $in['smtp_pass'];
     if (($in['wa_cloud_token'] ?? '') !== '') $new['wa_cloud_token'] = $in['wa_cloud_token'];
     if ($new['notify_emails'] === '') { flash('Enter at least one valid email for enquiries.', 'err'); go('?p=settings'); }
@@ -292,7 +293,7 @@ function page_settings(string $msg): void {
    . '<details' . ($s['wa_provider'] === 'cloudapi' ? ' open' : '') . '><summary>WhatsApp Business Cloud API settings (official, for higher volume)</summary><p class="small muted">Requires a Meta Business account. Business-initiated messages must use an approved message template whose body has 4 variables: {{1}} customer, {{2}} country, {{3}} product, {{4}} reference.</p>'
    . '<label>Access token ' . ($s['wa_cloud_token'] ? '(saved — leave empty to keep)' : '') . '<input type="password" name="wa_cloud_token" autocomplete="off"></label><div class="grid2"><label>Phone number ID<input name="wa_cloud_phone_id" value="' . e($s['wa_cloud_phone_id']) . '"></label><label>Template name<input name="wa_cloud_template" value="' . e($s['wa_cloud_template']) . '"></label></div><label>Template language code<input name="wa_cloud_lang" value="' . e($s['wa_cloud_lang']) . '"></label></details>'
    . '<button class="btn ghost" name="test_wa" value="1">Save and send a test WhatsApp</button></fieldset>'
-   . '<fieldset><legend>Website</legend><label>WhatsApp chat button number shown to visitors<input name="public_whatsapp" value="' . e($s['public_whatsapp']) . '"></label><label>Website address<input name="site_url" value="' . e($s['site_url']) . '"></label></fieldset>'
+   . '<fieldset><legend>Website</legend><label>Factory tour video (paste a YouTube or Vimeo link, or the address of an .mp4 file uploaded to /uploads/video/). Leave empty to show “Coming soon”.<input name="tour_video" value="' . e($s['tour_video']) . '" placeholder="https://www.youtube.com/watch?v=..."></label><label>WhatsApp chat button number shown to visitors<input name="public_whatsapp" value="' . e($s['public_whatsapp']) . '"></label><label>Website address<input name="site_url" value="' . e($s['site_url']) . '"></label></fieldset>'
    . '<button class="btn">Save settings</button></form>';
   admin_shell('Settings', $html);
 }

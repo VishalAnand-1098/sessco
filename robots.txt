@@ -4,6 +4,7 @@ Disallow: /thank-you/
 Disallow: /send-enquiry.php
 Disallow: /admin/
 Disallow: /inc/
+Disallow: /download-profile.php
 
 Sitemap: https://www.jasscosteel.com/sitemap.xml
 Sitemap: https://www.jasscosteel.com/blog/sitemap.xml

@@ -478,3 +478,51 @@ svg.ar{width:1em;height:1em;flex-shrink:0;vertical-align:-.12em}
 .gallery img.contain{aspect-ratio:auto;height:auto}
 .mep-gal img[src*="vehicle-acoustic"]{aspect-ratio:auto;height:auto}
 .mep-gal figure:has(img[src*="vehicle-acoustic"]){grid-column:1/-1}
+/* v7: nav alignment (links and dropdown buttons share one box model) */
+.nav a.nl,.nav button.nl{height:44px;line-height:1;font-size:15px;font-weight:500;font-family:var(--font);margin:0;vertical-align:middle;box-sizing:border-box}
+.nav > ul{align-items:center}
+.nav .chev{margin-top:1px}
+.mega .mega-feature{grid-column:1/-1;font-weight:600;color:var(--cobalt);background:var(--cobalt-50);margin-bottom:6px}
+@media (max-width:1120px){.nav a.nl,.nav button.nl{height:auto;padding:14px 4px;font-size:16px}}
+/* v7: product carousel */
+.pcarousel{position:relative;max-width:calc(var(--wrap) + 120px);margin:0 auto;padding:0 56px}
+.pc-viewport{overflow:hidden;padding:10px 0 18px;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 40px,#000 calc(100% - 40px),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 40px,#000 calc(100% - 40px),transparent 100%)}
+.pc-track{display:flex;gap:22px;will-change:transform}
+.pc-card{flex:0 0 290px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s,border-color .25s}
+.pc-img{aspect-ratio:4/3;overflow:hidden;background:var(--bg-3)}
+.pc-img img{width:100%;height:100%;object-fit:cover;transition:transform .45s}
+.pc-body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+.pc-body h3{font-size:1.05rem;margin-bottom:6px}
+.pc-body p{font-size:14px;color:var(--muted);margin-bottom:12px}
+.pc-body .more{margin-top:auto;font-weight:600;font-size:14px;color:var(--cobalt);display:inline-flex;gap:6px;align-items:center}
+.pc-card:hover,.pc-card:focus-visible{transform:translateY(-6px);border-color:var(--cobalt);box-shadow:0 0 0 3px rgba(21,74,139,.15),0 18px 36px rgba(16,24,40,.16)}
+.pc-card:hover .pc-img img{transform:scale(1.06)}
+.pc-card:hover h3{color:var(--cobalt)}
+.pc-nav{position:absolute;top:50%;transform:translateY(-60%);width:42px;height:42px;border-radius:50%;border:1px solid var(--line-2);background:#fff;color:var(--cobalt);font-size:26px;line-height:1;cursor:pointer;box-shadow:var(--shadow);z-index:2}
+.pc-nav:hover{background:var(--cobalt);color:#fff;border-color:var(--cobalt)}
+.pc-nav.prev{left:6px}.pc-nav.next{right:6px}
+.pc-hint{margin:4px 0 0;text-align:center}
+@media (max-width:640px){.pcarousel{padding:0 16px}.pc-nav{display:none}.pc-card{flex-basis:78vw}.pc-viewport{-webkit-mask-image:none;mask-image:none}}
+/* v7: factory tour video */
+.tour-box{border-radius:12px;overflow:hidden;box-shadow:0 14px 34px rgba(16,24,40,.16);background:#0b1b33;aspect-ratio:16/9;position:relative}
+.tour-placeholder,.tour-placeholder img{width:100%;height:100%}
+.tour-placeholder img{object-fit:cover;filter:brightness(.55)}
+.tour-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;gap:6px;text-align:center}
+.tour-play{width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.18);border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-size:26px;padding-left:5px;margin-bottom:8px;backdrop-filter:blur(4px)}
+.tour-overlay b{font-family:var(--display);font-size:1.3rem}
+.tour-overlay span:last-child{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--yellow);font-weight:600}
+.tour-box iframe,.tour-box video{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
+/* v7: certifications */
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.cert{background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px 20px;display:flex;flex-direction:column;gap:6px}
+.cert .cn{font-family:var(--display);font-weight:700;color:var(--cobalt-900);font-size:1.05rem}
+.cert .cd{font-size:14px;color:var(--muted)}
+.cert .cs{margin-top:auto;padding-top:8px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.cert .cs.ok{color:var(--ok)}.cert .cs.pending{color:#8A6100}
+.cert-cat{margin:28px 0 12px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--subtle);font-weight:600}
+@media (max-width:1120px){.nav > ul{align-items:stretch}.nav a.nl,.nav button.nl{width:100%;justify-content:space-between;text-align:left}}
+@media (max-width:640px){.pc-hint{display:none}}
+/* v8: keep the landscaped garden in front of the factory visible */
+.hero2-media .m2,.hero2-media .m3{aspect-ratio:3/2}
+img[src*="factory-entrance-hd"]{object-position:35% 100%}
+.phero figure img[src*="factory-entrance-hd"]{aspect-ratio:16/10}

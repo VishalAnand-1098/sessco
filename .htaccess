@@ -53,3 +53,4 @@ RedirectMatch 404 ^/(inc|_data|_enquiries)(/|$)
 
 AddType image/webp .webp
 AddType font/woff .woff
+AddType video/mp4 .mp4
